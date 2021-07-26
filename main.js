@@ -78,16 +78,13 @@ setTimeout(_ => {
     const separators    = hex_to_rgb(document.getElementById('separators').value    || '#87CEFA')
     const buttons       = hex_to_rgb(document.getElementById('buttons').value       || '#1155CC');
 
-    let dark_sky = rgb_to_hsv(sky);
-    console.log(dark_sky);
-    console.log(sky);
+    let dark_sky = rgb_to_hsv(sky.r, sky.g, sky.b);
     dark_sky = hsv_to_rgb(
       dark_sky.h,
       Math.max(dark_sky.s - .01, 0),
       Math.max(dark_sky.v - .24, 0)
     );
 
-    console.log(dark_sky);
 
     for(let y = 0; y < 400; y++) {
       for(let x = 0; x < 400; x++) {
