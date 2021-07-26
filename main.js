@@ -80,6 +80,7 @@ setTimeout(_ => {
 
     let dark_sky = rgb_to_hsv(sky);
     console.log(dark_sky);
+    console.log(sky);
     dark_sky = hsv_to_rgb(
       dark_sky.h,
       Math.max(dark_sky.s - .01, 0),
