@@ -132,11 +132,11 @@ setTimeout(_ => {
           b: menu_pix[2 + i],
         };
 
-        if(close(c, { r: 58, g: 145, b: 187, })) {
+        if(close(c, { r: 58, g: 145, b: 187, }, 20, 40, 55)) {
           menu_pix[0 + i] = dark_sky.r;
           menu_pix[1 + i] = dark_sky.g;
           menu_pix[2 + i] = dark_sky.b;
-        } else if(close(c, { r: 77, g: 193, b: 249, }, 20, 40, 55)) {
+        } else if(close(c, { r: 77, g: 193, b: 249, })) {
           menu_pix[0 + i] = sky.r;
           menu_pix[1 + i] = sky.g;
           menu_pix[2 + i] = sky.b;
