@@ -79,6 +79,7 @@ setTimeout(_ => {
     const buttons       = hex_to_rgb(document.getElementById('buttons').value       || '#1155CC');
 
     let dark_sky = rgb_to_hsv(sky);
+    console.log(dark_sky);
     dark_sky = hsv_to_rgb(
       dark_sky.h,
       Math.max(dark_sky.s - .01, 0),
