@@ -85,6 +85,8 @@ setTimeout(_ => {
       Math.max(dark_sky.v - .24, 0)
     );
 
+    console.log(dark_sky);
+
     for(let y = 0; y < 400; y++) {
       for(let x = 0; x < 400; x++) {
         const i = 4 * (x + y * 400);
