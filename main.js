@@ -40,10 +40,10 @@ function hsv_to_rgb(h, s, v) {
   return { r: r * 255, g: g * 255, b: b * 255, };
 }
 
-function close(c0, c1) {
-  return Math.abs(c0.r - c1.r) < 8 &&
-         Math.abs(c0.g - c1.g) < 8 &&
-         Math.abs(c0.b - c1.b) < 8;
+function close(c0, c1, r = 8) {
+  return Math.abs(c0.r - c1.r) < r &&
+         Math.abs(c0.g - c1.g) < r &&
+         Math.abs(c0.b - c1.b) < r;
 }
 
 let board_preview = document.getElementById('board_preview');
@@ -108,7 +108,7 @@ setTimeout(_ => {
           board_pix[0 + i] = score_bar.r;
           board_pix[1 + i] = score_bar.g;
           board_pix[2 + i] = score_bar.b;
-        } else if(close(c, { r: 148, g: 189, b: 70, })) {
+        } else if(close(c, { r: 148, g: 189, b: 70, }, 15)) {
           board_pix[0 + i] = shadows.r;
           board_pix[1 + i] = shadows.g;
           board_pix[2 + i] = shadows.b;
