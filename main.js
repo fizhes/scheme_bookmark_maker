@@ -108,7 +108,7 @@ setTimeout(_ => {
           board_pix[0 + i] = score_bar.r;
           board_pix[1 + i] = score_bar.g;
           board_pix[2 + i] = score_bar.b;
-        } else if(close(c, { r: 148, g: 189, b: 70, })) {
+        } else if(close(c, { r: 148, g: 189, b: 70, }, 25)) {
           board_pix[0 + i] = shadows.r;
           board_pix[1 + i] = shadows.g;
           board_pix[2 + i] = shadows.b;
