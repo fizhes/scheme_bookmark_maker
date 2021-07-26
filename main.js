@@ -171,7 +171,7 @@ document.getElementById('preview_button').onclick = function() {
 
 };
 
-
+document.getElementById('preview_button').onclick();
 
 document.getElementById('save').onclick = function() {
 
