@@ -4,7 +4,7 @@
     <title>Google Snake Custom Scheme Bookmark Maker</title>
     <link rel="icon" href="dark.png" type="image/icon type">
     
-    <p style="font-family: Consolas;font-weight:bold;position: relative;text-align: center;top: -50%;margin-left: auto;margin-right: auto;">
+    <p style="font-family: Times New Roman;font-weight:bold;position: relative;text-align: center;top: -50%;margin-left: auto;margin-right: auto;">
       <span style="font-size: 50px;">Google Snake Scheme Bookmark Maker</span><br/>
       <span style="font-weight:normal;font-size: 25px;">
         Quickly and Easily Make a Custom Scheme
@@ -12,7 +12,7 @@
     </p>
   </head>
   <body>
-    <div style="font-family: Segoe UI;width: 600px;position:relative;top:50%;transform:translate(0%,-50%);margin-left:auto;margin-right:auto;margin-top:450px;">
+    <div style="font-family: Segoe UI;width: 600px;height: 772px;position:relative;top:50%;transform:translate(0%,-50%);margin-left:auto;margin-right:auto;margin-top:-60px;">
 
       <div style="font-family: Segoe UI;width: 600px;position:relative;top:50%;transform:translate(0%,-50%);margin-left:auto;margin-right:auto;margin-top:100px;">
         <label for="title">Bookmark Title: <br/></label>
@@ -27,6 +27,7 @@
       <div style="font-family: Segoe UI;width: 600px;position:relative;top:50%;transform:translate(0%,-50%);margin-left:auto;margin-right:auto;margin-top:5px;">
         <label for="score_bar">Score Bar Color: <br/></label>
         <input type="text" id="score_bar" name="score_bar" size="10">
+
       </div>
 
       
@@ -67,7 +68,7 @@
         <label for="background">Background Color (optional): <br/></label>
         <input type="text" id="background" name="background" size="10">
       </div>
-      
+
 
       <div style="font-family: Segoe UI;width: 600px;position:relative;top:50%;transform:translate(0%,-50%);margin-left:auto;margin-right:auto;margin-top:10px;">
         <label for="sky">Menu Sky Color (optional): <br/></label>
@@ -115,12 +116,12 @@
       <br/>
 
       <div style="font-family: Segoe UI;width: 600px;position:relative;top:50%;transform:translate(0%,-50%);margin-left:auto;margin-right:auto;margin-top:-20px;">
-        <button id="save">Create Bookmark</button>
+        <button style="cursor: pointer;" id="save">Create Bookmark</button>
       </div>
 
-      <div  style="font-family: Segoe UI;width: 600px;position:relative;top:50%;transform:translate(0%,-50%);margin-left:auto;margin-right:auto;margin-top:10px;">
+      <div style="font-family:Times New Roman;width: 600px;position:relative;top:50%;transform:translate(0%,-50%);margin-left:auto;margin-right:auto;margin-top:10px;">
         <p>
-          <u onclick="window.open('https:\/\/www.youtube.com/watch?v=9W0fEpVFhgc', '_blank');" style="color:#41afff;cursor: pointer;">How to Import the Bookmark</u><br/>
+          <u onclick="window.open('https:\/\/www.youtube.com/watch?v=9W0fEpVFhgc', '_blank');" style="font-family: Segoe UI;color:#41afff;cursor: pointer;">How to Import the Bookmark</u><br/>
           (Of course, use the bookmark you make here, not the one linked in the description!)
         </p>
       </div>
@@ -129,7 +130,7 @@
       
     </div>
     <div style="position:fixed;width: 400px;height: 100px;right:50px;top:0px;">
-      <div id="preview">Preview:</div>
+      <div style="font-family:Consolas" id="preview">Preview:</div>
     </div>
     <canvas style="position:fixed;right:50px;top:25px;" id="board_preview" width="400px" height="400px"></canvas>
     <canvas style="position:fixed;right:50px;top:425px;" id="menu_preview" width="400px" height="542px"></canvas>
