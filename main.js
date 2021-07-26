@@ -108,7 +108,7 @@ setTimeout(_ => {
           board_pix[0 + i] = score_bar.r;
           board_pix[1 + i] = score_bar.g;
           board_pix[2 + i] = score_bar.b;
-        } else if(close(c, { r: 148, g: 189, b: 70, }, 25, 25, 50)) {
+        } else if(close(c, { r: 148, g: 189, b: 70, })) {
           board_pix[0 + i] = shadows.r;
           board_pix[1 + i] = shadows.g;
           board_pix[2 + i] = shadows.b;
@@ -116,6 +116,10 @@ setTimeout(_ => {
           board_pix[0 + i] = border.r;
           board_pix[1 + i] = border.g;
           board_pix[2 + i] = border.b;
+        } else if(close(c, { r: 135, g: 182, b: 117, })) {
+          board_pix[0 + i] = 76;
+          board_pix[1 + i] = 122;
+          board_pix[2 + i] = 218;
         }
       }
     }
