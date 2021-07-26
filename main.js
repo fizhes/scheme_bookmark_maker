@@ -189,6 +189,8 @@ document.getElementById('save').onclick = function() {
   const separators = document.getElementById('separators').value || undefined;
   const buttons = document.getElementById('buttons').value || undefined;
 
+  console.log(title, score_bar, border, background, shadows, light_squares, dark_squares, light_goal, dark_goal, key_block_marks, sky, separators, buttons);
+
 
   create_bookmark(
     'test.html',
