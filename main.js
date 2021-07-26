@@ -83,7 +83,7 @@ function cool() {
   menu_pix = menu_data.data;
 
   const score_bar     = hex_to_rgb(document.getElementById('score_bar').value     || '#4A752C');
-  const border        = hex_to_rgb(document.getElementById('border').value        || '#4A752C');
+  const border        = hex_to_rgb(document.getElementById('border').value        || '#578A34');
   const shadows       = hex_to_rgb(document.getElementById('shadows').value       || '#94BD46');
   const light_squares = hex_to_rgb(document.getElementById('light_squares').value || '#AAD751');
   const dark_squares  = hex_to_rgb(document.getElementById('dark_squares').value  || '#A2D149');
