@@ -138,6 +138,9 @@ setTimeout(_ => {
       }
     }
 
+    board_ctx.putImageData(board_data, 0, 0);
+    menu_ctx.putImageData(menu_data, 0, 0);
+
   };
 
 
