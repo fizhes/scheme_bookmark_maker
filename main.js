@@ -190,11 +190,10 @@ document.getElementById('save').onclick = function() {
   const separators = document.getElementById('separators').value;
   const buttons = document.getElementById('buttons').value;
 
-  console.log(title, score_bar, border, background, shadows, light_squares, dark_squares, light_goal, dark_goal, key_block_marks, sky, separators, buttons);
 
 
   create_bookmark(
-    'test.html',
+    `${title}.html`,
     `<!DOCTYPE NETSCAPE-Bookmark-file-1>
     <!-- This is an automatically generated file.
             It will be read and overwritten.
