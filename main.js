@@ -40,6 +40,12 @@ function hsv_to_rgb(h, s, v) {
   return { r: r * 255, g: g * 255, b: b * 255, };
 }
 
+function close(c0, c1) {
+  return Math.abs(c0.r - c1.r) < 2 &&
+         Math.abs(c0.g - c1.g) < 2 &&
+         Math.abs(c0.b - c1.b) < 2;
+}
+
 let board_preview = document.getElementById('board_preview');
 const board_ctx = board_preview.getContext('2d');
 let menu_preview = document.getElementById('menu_preview');
@@ -88,19 +94,19 @@ setTimeout(_ => {
           b: board_pix[2 + i],
         };
 
-        if(c.r === 162 && c.g === 209 && c.b === 73) {
+        if(close(c, { r: 162, g: 209, b: 73, })) {
           board_pix[0 + i] = dark_squares.r;
           board_pix[1 + i] = dark_squares.g;
           board_pix[2 + i] = dark_squares.b;
-        } else if(c.r === 170 && c.g === 215 && c.b === 81) {
+        } else if(close(c, { r: 170, g: 215, b: 81, })) {
           board_pix[0 + i] = light_squares.r;
           board_pix[1 + i] = light_squares.g;
           board_pix[2 + i] = light_squares.b;
-        } else if(c.r === 74 && c.g === 117 && c.b === 44) {
+        } else if(close(c, { r: 74, g: 117, b: 44, })) {
           board_pix[0 + i] = score_bar.r;
           board_pix[1 + i] = score_bar.g;
           board_pix[2 + i] = score_bar.b;
-        } else if(c.r === 148 && c.g === 189 && c.b === 70) {
+        } else if(close(c, { r: 148, g: 189, b: 70, })) {
           board_pix[0 + i] = shadows.r;
           board_pix[1 + i] = shadows.g;
           board_pix[2 + i] = shadows.b;
@@ -116,19 +122,19 @@ setTimeout(_ => {
           b: menu_pix[2 + i],
         };
 
-        if(c.r === 58 && c.g === 145 && c.b === 187) {
+        if(close(c, { r: 58, g: 145, b: 187, })) {
           menu_pix[0 + i] = dark_sky.r;
           menu_pix[1 + i] = dark_sky.g;
           menu_pix[2 + i] = dark_sky.b;
-        } else if(c.r === 77 && c.g === 193 && c.b === 249) {
+        } else if(close(c, { r: 77, g: 193, b: 249, })) {
           menu_pix[0 + i] = sky.r;
           menu_pix[1 + i] = sky.g;
           menu_pix[2 + i] = sky.b;
-        } else if(c.r === 135 && c.g === 206 && c.b === 250) {
+        } else if(close(c, { r: 135, g: 206, b: 250, })) {
           menu_pix[0 + i] = separators.r;
           menu_pix[1 + i] = separators.g;
           menu_pix[2 + i] = separators.b;
-        } else if(c.r === 17 && c.g === 85 && c.b === 204) {
+        } else if(close(c, { r: 17, g: 85, b: 204, })) {
           menu_pix[0 + i] = buttons.r;
           menu_pix[1 + i] = buttons.g;
           menu_pix[2 + i] = buttons.b;
