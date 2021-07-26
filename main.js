@@ -170,6 +170,18 @@ function cool() {
   menu_ctx.putImageData(menu_data, 0, 0);
 }
 
+document.getElementById('score_bar').onchange =
+document.getElementById('walls').onchange =
+document.getElementById('border').onchange =
+document.getElementById('walls').onchange =
+document.getElementById('shadows').onchange =
+document.getElementById('light_squares').onchange =
+document.getElementById('dark_squares').onchange =
+document.getElementById('sky').onchange =
+document.getElementById('separators').onchange =
+document.getElementById('buttons').onchange =
+cool;
+
 document.getElementById('preview_button').onclick = cool;
 
 setTimeout(cool, 500);
