@@ -41,9 +41,9 @@ function hsv_to_rgb(h, s, v) {
 }
 
 function close(c0, c1) {
-  return Math.abs(c0.r - c1.r) < 2 &&
-         Math.abs(c0.g - c1.g) < 2 &&
-         Math.abs(c0.b - c1.b) < 2;
+  return Math.abs(c0.r - c1.r) < 10 &&
+         Math.abs(c0.g - c1.g) < 10 &&
+         Math.abs(c0.b - c1.b) < 10;
 }
 
 let board_preview = document.getElementById('board_preview');
