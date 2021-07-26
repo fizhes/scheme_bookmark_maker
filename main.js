@@ -74,7 +74,7 @@ setTimeout(_ => {
   
 }, 250);
 
-document.getElementById('preview_button').onclick = function() {
+function cool() {
   board_ctx.drawImage(board_img, 0, 0);
   menu_ctx.drawImage(menu_img, 0, 0);
   board_data = board_ctx.getImageData(0, 0, 400, 400);
@@ -168,10 +168,11 @@ document.getElementById('preview_button').onclick = function() {
 
   board_ctx.putImageData(board_data, 0, 0);
   menu_ctx.putImageData(menu_data, 0, 0);
+}
 
-};
+document.getElementById('preview_button').onclick = cool;
 
-document.getElementById('preview_button').onclick();
+cool();
 
 document.getElementById('save').onclick = function() {
 
