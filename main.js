@@ -172,7 +172,7 @@ function cool() {
 
 document.getElementById('preview_button').onclick = cool;
 
-cool();
+setTimeout(cool, 500);
 
 document.getElementById('save').onclick = function() {
 
