@@ -140,7 +140,7 @@ setTimeout(_ => {
           menu_pix[0 + i] = sky.r;
           menu_pix[1 + i] = sky.g;
           menu_pix[2 + i] = sky.b;
-        } else if(close(c, { r: 178, g: 0, b: 255, })) {
+        } else if(close(c, { r: 178, g: 0, b: 255, }, 20, 60, 8)) {
           menu_pix[0 + i] = separators.r;
           menu_pix[1 + i] = separators.g;
           menu_pix[2 + i] = separators.b;
