@@ -75,6 +75,13 @@ setTimeout(_ => {
 }, 250);
 
 document.getElementById('preview_button').onclick = function() {
+  board_ctx.drawImage(board_img, 0, 0);
+  menu_ctx.drawImage(menu_img, 0, 0);
+  board_data = board_ctx.getImageData(0, 0, 400, 400);
+  board_pix = board_data.data;
+  menu_data = menu_ctx.getImageData(0, 0, 400, 542);
+  menu_pix = menu_data.data;
+
   const score_bar     = hex_to_rgb(document.getElementById('score_bar').value     || '#4A752C');
   const border        = hex_to_rgb(document.getElementById('border').value        || '#4A752C');
   const shadows       = hex_to_rgb(document.getElementById('shadows').value       || '#94BD46');
