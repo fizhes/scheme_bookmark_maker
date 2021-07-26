@@ -180,7 +180,7 @@ document.getElementById('separators').onchange =
 document.getElementById('buttons').onchange =
 cool;
 
-document.getElementById('preview_button').onclick = cool;
+// document.getElementById('preview_button').onclick = cool;
 
 setTimeout(cool, 500);
 
