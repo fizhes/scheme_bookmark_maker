@@ -66,13 +66,15 @@ let menu_img = new Image();
 menu_img.src = 'menu.png';
 menu_img.crossOrigin = 'Anonymous';
 
+board_img.width = board_preview.width;
+board_img.height = board_preview.height;
+menu_img.width = menu_preview.width;
+menu_img.height = menu_preview.height;
+
 let board_data, board_pix, menu_data, menu_pix;
 
 setTimeout(_ => {
-  board_img.width = board_preview.width;
-  board_img.height = board_preview.height;
-  menu_img.width = menu_preview.width;
-  menu_img.height = menu_preview.height;
+  
 
   board_ctx.drawImage(board_img, 0, 0);
   menu_ctx.drawImage(menu_img, 0, 0);
@@ -84,7 +86,7 @@ setTimeout(_ => {
 
 
   
-}, 250);
+}, 1000);
 
 function cool() {
   console.log('l');
