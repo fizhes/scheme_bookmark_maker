@@ -60,15 +60,17 @@ const menu_ctx = menu_preview.getContext('2d');
 
 let board_img = new Image();
 board_img.src = 'board.png';
-board_img.crossOrigin = 'Anonymous';
 board_img.width = board_preview.width;
 board_img.height = board_preview.height;
+board_img.crossOrigin = 'Anonymous';
+console.log(board_img);
 
 let menu_img = new Image();
 menu_img.src = 'menu.png';
-menu_img.crossOrigin = 'Anonymous';
 menu_img.width = menu_preview.width;
 menu_img.height = menu_preview.height;
+menu_img.crossOrigin = 'Anonymous';
+console.log(menu_img);
 
 let board_data, board_pix, menu_data, menu_pix;
 
