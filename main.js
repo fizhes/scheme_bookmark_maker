@@ -171,7 +171,7 @@ function cool() {
 }
 
 document.getElementById('score_bar').onmousemove =
-document.getElementById('border').onmousemove =
+document.getElementById('border').onmousemove = 
 document.getElementById('shadows').onmousemove =
 document.getElementById('light_squares').onmousemove =
 document.getElementById('dark_squares').onmousemove =
