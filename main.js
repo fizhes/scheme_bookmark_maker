@@ -170,14 +170,14 @@ function cool() {
   menu_ctx.putImageData(menu_data, 0, 0);
 }
 
-document.getElementById('score_bar').onchange =
-document.getElementById('border').onchange =
-document.getElementById('shadows').onchange =
-document.getElementById('light_squares').onchange =
-document.getElementById('dark_squares').onchange =
-document.getElementById('sky').onchange =
-document.getElementById('separators').onchange =
-document.getElementById('buttons').onchange =
+document.getElementById('score_bar').onmousemove =
+document.getElementById('border').onmousemove =
+document.getElementById('shadows').onmousemove =
+document.getElementById('light_squares').onmousemove =
+document.getElementById('dark_squares').onmousemove =
+document.getElementById('sky').onmousemove =
+document.getElementById('separators').onmousemove =
+document.getElementById('buttons').onmousemove =
 cool;
 
 // document.getElementById('preview_button').onclick = cool;
