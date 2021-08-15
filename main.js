@@ -47,8 +47,12 @@ function close(c0, c1, rr = 8, rg = rr, rb = rr) {
 }
 
 let board_preview = document.getElementById('board_preview');
+board_preview.width = board_preview.height = window.innerHeight / 2;
 const board_ctx = board_preview.getContext('2d');
+
 let menu_preview = document.getElementById('menu_preview');
+menu_preview.height = window.innerHeight / 2;
+menu_preview.width = 400 / 542 * menu_preview.height;
 const menu_ctx = menu_preview.getContext('2d');
 
 let board_img = new Image();
@@ -65,9 +69,9 @@ setTimeout(_ => {
   board_ctx.drawImage(board_img, 0, 0);
   menu_ctx.drawImage(menu_img, 0, 0);
 
-  board_data = board_ctx.getImageData(0, 0, 400, 400);
+  board_data = board_ctx.getImageData(0, 0, board_preview.width, board_preview.height);
   board_pix = board_data.data;
-  menu_data = menu_ctx.getImageData(0, 0, 400, 542);
+  menu_data = menu_ctx.getImageData(0, 0, menu_preview.width, menu_preview.height);
   menu_pix = menu_data.data;
 
 
@@ -75,11 +79,12 @@ setTimeout(_ => {
 }, 250);
 
 function cool() {
+  console.log('l');
   board_ctx.drawImage(board_img, 0, 0);
   menu_ctx.drawImage(menu_img, 0, 0);
-  board_data = board_ctx.getImageData(0, 0, 400, 400);
+  board_data = board_ctx.getImageData(0, 0, board_preview.width, board_preview.height);
   board_pix = board_data.data;
-  menu_data = menu_ctx.getImageData(0, 0, 400, 542);
+  menu_data = menu_ctx.getImageData(0, 0, menu_preview.width, menu_preview.height);
   menu_pix = menu_data.data;
 
   const score_bar     = hex_to_rgb(document.getElementById('score_bar').value     || '#4A752C');
@@ -99,9 +104,9 @@ function cool() {
   );
 
 
-  for(let y = 0; y < 400; y++) {
-    for(let x = 0; x < 400; x++) {
-      const i = 4 * (x + y * 400);
+  for(let y = 0; y < board_preview.height; y++) {
+    for(let x = 0; x < board_preview.width; x++) {
+      const i = 4 * (x + y * board_preview.width);
       const c = {
         r: board_pix[0 + i],
         g: board_pix[1 + i],
@@ -135,9 +140,9 @@ function cool() {
       }
     }
   }
-  for(let y = 0; y < 542; y++) {
-    for(let x = 0; x < 400; x++) {
-      const i = 4 * (x + y * 400);
+  for(let y = 0; y < menu_preview.height; y++) {
+    for(let x = 0; x < menu_preview.width; x++) {
+      const i = 4 * (x + y * menu_preview.width);
       const c = {
         r: menu_pix[0 + i],
         g: menu_pix[1 + i],
@@ -170,14 +175,14 @@ function cool() {
   menu_ctx.putImageData(menu_data, 0, 0);
 }
 
-document.getElementById('score_bar').onmousemove =
-document.getElementById('border').onmousemove = 
-document.getElementById('shadows').onmousemove =
-document.getElementById('light_squares').onmousemove =
-document.getElementById('dark_squares').onmousemove =
-document.getElementById('sky').onmousemove =
-document.getElementById('separators').onmousemove =
-document.getElementById('buttons').onmousemove =
+document.getElementById('score_bar').oninput =
+document.getElementById('border').oninput = 
+document.getElementById('shadows').oninput =
+document.getElementById('light_squares').oninput =
+document.getElementById('dark_squares').oninput =
+document.getElementById('sky').oninput =
+document.getElementById('separators').oninput =
+document.getElementById('buttons').oninput =
 cool;
 
 // document.getElementById('preview_button').onclick = cool;
