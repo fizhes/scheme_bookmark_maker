@@ -235,3 +235,9 @@ document.getElementById('save').onclick = function() {
     </DL><p>    `
   );
 };
+
+
+[...document.getElementsByClassName('baaaa')].forEach(e => e.addEventListener('auxclick', function(evt) {
+  if(evt.button === 1)
+    e.onclick();
+}));
