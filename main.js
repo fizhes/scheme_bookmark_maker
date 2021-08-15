@@ -54,7 +54,7 @@ const board_ctx = board_preview.getContext('2d');
 let menu_preview = document.getElementById('menu_preview');
 menu_preview.height = window.innerHeight / 2;
 menu_preview.width = 400 / 542 * menu_preview.height;
-menu_preview.style = `position: fixed; right: 25px; top: ${board_preview.height + 25}px;`;
+menu_preview.style = `position: relative;`;
 const menu_ctx = menu_preview.getContext('2d');
 
 
