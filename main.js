@@ -86,7 +86,7 @@ setTimeout(_ => {
 
 
   
-}, 250);
+}, 300);
 
 function cool() {
   console.log('l');
