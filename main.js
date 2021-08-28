@@ -206,7 +206,7 @@ setTimeout(cool, 500);
 
 document.getElementById('save').onclick = function() {
 
-  const title = document.getElementById('title').value;
+  const title = document.getElementById('title').value || 'scheme';
   const score_bar = document.getElementById('score_bar').value;
   const border = document.getElementById('border').value;
   const walls = document.getElementById('walls').value;
