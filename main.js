@@ -40,11 +40,13 @@ function hsv_to_rgb(h, s, v) {
   return { r: r * 255, g: g * 255, b: b * 255, };
 }
 
-function close(c0, c1, rr = 8, rg = rr, rb = rr) {
+function close(c0, c1, rr = 1, rg = rr, rb = rr) {
   return Math.abs(c0.r - c1.r) < rr &&
          Math.abs(c0.g - c1.g) < rg &&
          Math.abs(c0.b - c1.b) < rb;
 }
+
+
 
 let board_preview = document.getElementById('board_preview');
 board_preview.width = board_preview.height = (window.innerHeight - 100) / 2;
@@ -58,18 +60,19 @@ menu_preview.style = `position: fixed; right: ${25 + menu_preview.width / 6}px; 
 const menu_ctx = menu_preview.getContext('2d');
 
 
-let board_img = new Image(20, 20);
-board_img.src = 'https://i.postimg.cc/4Nwn1T3F/board.png';
+let board_img = new Image();
+board_img.src = 'https://i.postimg.cc/G2hFQM7z/board-1.png';
 board_img.crossOrigin = 'Anonymous';
 
 let menu_img = new Image();
-menu_img.src = 'https://i.postimg.cc/5ysYjcYG/menu.png';
+menu_img.src = 'https://i.postimg.cc/4N3dwDQr/menu.png';
 menu_img.crossOrigin = 'Anonymous';
 
 board_img.width = (window.innerHeight - 100) / 2;
 board_img.height = (window.innerHeight - 100) / 2;
 menu_img.width = (window.innerHeight - 100) / 2;
 menu_img.height = 400 / 542 * (window.innerHeight - 100) / 2;
+
 
 let board_data, board_pix, menu_data, menu_pix;
 
@@ -89,7 +92,6 @@ setTimeout(_ => {
 }, 300);
 
 function cool() {
-  console.log('l');
   board_ctx.fillStyle = 'black';
   board_ctx.fillRect(0, 0, (window.innerHeight - 100) / 2, (window.innerHeight - 100) / 2);
   menu_ctx.fillStyle = 'black';
@@ -104,6 +106,7 @@ function cool() {
 
   const score_bar     = hex_to_rgb(document.getElementById('score_bar').value     || '#4A752C');
   const border        = hex_to_rgb(document.getElementById('border').value        || '#578A34');
+  const walls         = hex_to_rgb(document.getElementById('walls').value         || '#578A34');
   const shadows       = hex_to_rgb(document.getElementById('shadows').value       || '#94BD46');
   const light_squares = hex_to_rgb(document.getElementById('light_squares').value || '#AAD751');
   const dark_squares  = hex_to_rgb(document.getElementById('dark_squares').value  || '#A2D149');
@@ -118,6 +121,20 @@ function cool() {
     Math.max(dark_sky.v - .24, 0)
   );
 
+  let light_goal = rgb_to_hsv(light_squares.r, light_squares.g, light_squares.b);
+  light_goal = hsv_to_rgb(
+    light_goal.h,
+    Math.min(light_goal.s + .03, 1),
+    Math.min(light_goal.v + .07, 1)
+  );
+
+  let dark_goal = rgb_to_hsv(dark_squares.r, dark_squares.g, dark_squares.b);
+  dark_goal = hsv_to_rgb(
+    dark_goal.h,
+    Math.min(dark_goal.s + .03, 1),
+    Math.max(dark_goal.v - .08, 0)
+  );
+
 
   for(let y = 0; y < board_preview.height; y++) {
     for(let x = 0; x < board_preview.width; x++) {
@@ -128,30 +145,42 @@ function cool() {
         b: board_pix[2 + i],
       };
 
-      if(close(c, { r: 162, g: 209, b: 73, })) {
+      if(close(c, { r: 162, g: 209, b: 73, }, 5)) {
         board_pix[0 + i] = dark_squares.r;
         board_pix[1 + i] = dark_squares.g;
         board_pix[2 + i] = dark_squares.b;
-      } else if(close(c, { r: 170, g: 215, b: 81, })) {
+      } else if(close(c, { r: 170, g: 215, b: 81, }, 5)) {
         board_pix[0 + i] = light_squares.r;
         board_pix[1 + i] = light_squares.g;
         board_pix[2 + i] = light_squares.b;
-      } else if(close(c, { r: 74, g: 117, b: 44, })) {
+      } else if(close(c, { r: 74, g: 117, b: 44, }, 5)) {
         board_pix[0 + i] = score_bar.r;
         board_pix[1 + i] = score_bar.g;
         board_pix[2 + i] = score_bar.b;
-      } else if(close(c, { r: 148, g: 189, b: 70, }, 25)) {
+      } else if(close(c, { r: 148, g: 189, b: 70, }, 5)) {
         board_pix[0 + i] = shadows.r;
         board_pix[1 + i] = shadows.g;
         board_pix[2 + i] = shadows.b;
-      } else if(close(c, { r: 87, g: 138, b: 52, }, 30)) {
+      } else if(close(c, { r: 87, g: 138, b: 52, }, 5)) {
         board_pix[0 + i] = border.r;
         board_pix[1 + i] = border.g;
         board_pix[2 + i] = border.b;
-      } else if(close(c, { r: 135, g: 182, b: 117, }, 25)) {
-        board_pix[0 + i] = 76;
-        board_pix[1 + i] = 122;
-        board_pix[2 + i] = 218;
+      }// else if(close(c, { r: 135, g: 182, b: 117, }, 5)) {
+        // board_pix[0 + i] = 76;
+        // board_pix[1 + i] = 122;
+        // board_pix[2 + i] = 218;
+      /*}*/ else if(close(c, { r: 0, g: 127, b: 14, }, 5)) {
+        board_pix[0 + i] = walls.r;
+        board_pix[1 + i] = walls.g;
+        board_pix[2 + i] = walls.b;
+      } else if(close(c, { r: 179, g: 226, b: 85, }, 5)) {
+        board_pix[0 + i] = light_goal.r;
+        board_pix[1 + i] = light_goal.g;
+        board_pix[2 + i] = light_goal.b;
+      } else if(close(c, { r: 152, g: 196, b: 68, }, 5)) {
+        board_pix[0 + i] = dark_goal.r;
+        board_pix[1 + i] = dark_goal.g;
+        board_pix[2 + i] = dark_goal.b;
       }
     }
   }
@@ -164,19 +193,19 @@ function cool() {
         b: menu_pix[2 + i],
       };
 
-      if(close(c, { r: 58, g: 145, b: 187, }, 20, 40, 55)) {
+      if(close(c, { r: 58, g: 145, b: 187, }, 5, 1, 1)) {
         menu_pix[0 + i] = dark_sky.r;
         menu_pix[1 + i] = dark_sky.g;
         menu_pix[2 + i] = dark_sky.b;
-      } else if(close(c, { r: 77, g: 193, b: 249, })) {
+      } else if(close(c, { r: 77, g: 193, b: 249, }, 5)) {
         menu_pix[0 + i] = sky.r;
         menu_pix[1 + i] = sky.g;
         menu_pix[2 + i] = sky.b;
-      } else if(close(c, { r: 0, g: 255, b: 144, }, 75, 50, 75)) {
+      } else if(close(c, { r: 0, g: 148, b: 255, }, 50, 80, 50)) {
         menu_pix[0 + i] = separators.r;
         menu_pix[1 + i] = separators.g;
         menu_pix[2 + i] = separators.b;
-      } else if(close(c, { r: 17, g: 85, b: 204, })) {
+      } else if(close(c, { r: 17, g: 85, b: 204, }, 5)) {
         menu_pix[0 + i] = buttons.r;
         menu_pix[1 + i] = buttons.g;
         menu_pix[2 + i] = buttons.b;
@@ -188,7 +217,12 @@ function cool() {
 
   board_ctx.putImageData(board_data, 0, 0);
   menu_ctx.putImageData(menu_data, 0, 0);
+
 }
+
+
+
+
 
 document.getElementById('score_bar').oninput =
 document.getElementById('border').oninput = 
@@ -198,6 +232,7 @@ document.getElementById('dark_squares').oninput =
 document.getElementById('sky').oninput =
 document.getElementById('separators').oninput =
 document.getElementById('buttons').oninput =
+document.getElementById('walls').oninput =
 cool;
 
 // document.getElementById('preview_button').onclick = cool;
