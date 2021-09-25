@@ -68,24 +68,53 @@ let menu_img = new Image();
 menu_img.src = 'https://i.postimg.cc/4N3dwDQr/menu.png';
 menu_img.crossOrigin = 'Anonymous';
 
-board_img.width = (window.innerHeight - 100) / 2;
-board_img.height = (window.innerHeight - 100) / 2;
-menu_img.width = (window.innerHeight - 100) / 2;
-menu_img.height = 400 / 542 * (window.innerHeight - 100) / 2;
 
+let snek_img = new Image(), snek_canv = document.createElement('canvas'), snek_ctx, snek_data, snek_pix;
+snek_img.src = 'https://i.postimg.cc/hPZHP6pD/snek.png';
+snek_img.crossOrigin = 'Anonymous';
+snek_canv.width = 192;
+snek_canv.height = 143;
+snek_ctx = snek_canv.getContext('2d');
 
-let board_data, board_pix, menu_data, menu_pix;
+let burg = new Image();
+burg.src = 'https://i.postimg.cc/B6ycxmBb/porga.png';
+burg.className = 'DqMRee SsAred';
+
+let cact = new Image();
+cact.src = 'https://i.postimg.cc/RCDVL7Bf/index.png';
+cact.className = 'DqMRee SsAred';
+
+let dog = new Image();
+dog.src = 'https://i.postimg.cc/rsrbW0x6/dog.png';
+dog.className = 'DqMRee SsAred';
+
+let eg = new Image();
+eg.src = 'https://i.postimg.cc/501jDL9g/eg.png';
+eg.className = 'DqMRee SsAred';
+
+let lim = new Image();
+lim.src = 'https://i.postimg.cc/k5kWcyFB/lime.png';
+lim.className = 'DqMRee SsAred';
+
+let pep = new Image();
+pep.src = 'https://i.postimg.cc/BQqHMbDc/redpepper.png';
+pep.className = 'DqMRee SsAred';
+
 
 setTimeout(_ => {
   
 
-  board_ctx.drawImage(board_img, 0, 0, (window.innerHeight - 100) / 2, (window.innerHeight - 100) / 2);
-  menu_ctx.drawImage(menu_img, 0, 0, 400 / 542 * (window.innerHeight - 100) / 2, (window.innerHeight - 100) / 2);
+  // board_ctx.drawImage(board_img, 0, 0, (window.innerHeight - 100) / 2, (window.innerHeight - 100) / 2);
+  // menu_ctx.drawImage(menu_img, 0, 0, 400 / 542 * (window.innerHeight - 100) / 2, (window.innerHeight - 100) / 2);
 
-  board_data = board_ctx.getImageData(0, 0, board_preview.width, board_preview.height);
-  board_pix = board_data.data;
-  menu_data = menu_ctx.getImageData(0, 0, menu_preview.width, menu_preview.height);
-  menu_pix = menu_data.data;
+  // board_data = board_ctx.getImageData(0, 0, board_preview.width, board_preview.height);
+  // board_pix = board_data.data;
+  // menu_data = menu_ctx.getImageData(0, 0, menu_preview.width, menu_preview.height);
+  // menu_pix = menu_data.data;
+
+  snek_ctx.drawImage(snek_img, 0, 0);
+  snek_data = snek_ctx.getImageData(0, 0, snek_canv.width, snek_canv.height);
+  snek_pix = snek_data.data;
 
 
   
@@ -111,7 +140,7 @@ function cool() {
   const light_squares = hex_to_rgb(document.getElementById('light_squares').value || '#AAD751');
   const dark_squares  = hex_to_rgb(document.getElementById('dark_squares').value  || '#A2D149');
   const sky           = hex_to_rgb(document.getElementById('sky').value           || '#4DC1F9');
-  const separators    = hex_to_rgb(document.getElementById('separators').value    || '#87CEFA')
+  const separators    = hex_to_rgb(document.getElementById('separators').value    || '#87CEFA');
   const buttons       = hex_to_rgb(document.getElementById('buttons').value       || '#1155CC');
 
   let dark_sky = rgb_to_hsv(sky.r, sky.g, sky.b);
@@ -220,6 +249,163 @@ function cool() {
 
 }
 
+function cool_() {
+  board_ctx.fillStyle = 'white';
+  board_ctx.fillRect(0, 0, (window.innerHeight - 100) / 2, (window.innerHeight - 100) / 2);
+  menu_ctx.fillStyle = 'white';
+  menu_ctx.fillRect(0, 0, 400 / 542 * (window.innerHeight - 100) / 2, (window.innerHeight - 100) / 2);
+
+  const burger = document.getElementById('burger').checked;
+  const hotdog = document.getElementById('hotdog').checked;
+  const cactus = document.getElementById('cactus').checked;
+  const egg = document.getElementById('egg').checked;
+  const lime = document.getElementById('lime').checked;
+  const pepper = document.getElementById('pepper').checked;
+  const score_bar     = hex_to_rgb(document.getElementById('score_bar').value     || '#4A752C');
+  const border        = hex_to_rgb(document.getElementById('border').value        || '#578A34');
+  const walls         = hex_to_rgb(document.getElementById('walls').value         || '#578A34');
+  const shadows       = hex_to_rgb(document.getElementById('shadows').value       || '#94BD46');
+  const light_squares = hex_to_rgb(document.getElementById('light_squares').value || '#AAD751');
+  const dark_squares  = hex_to_rgb(document.getElementById('dark_squares').value  || '#A2D149');
+  const sky           = hex_to_rgb(document.getElementById('sky').value           || '#4DC1F9');
+  const separators    = hex_to_rgb(document.getElementById('separators').value    || '#87CEFA');
+  const buttons       = hex_to_rgb(document.getElementById('buttons').value       || '#1155CC');
+  let dark_sky = rgb_to_hsv(sky.r, sky.g, sky.b);
+  dark_sky = hsv_to_rgb(
+    dark_sky.h,
+    Math.max(dark_sky.s - .01, 0),
+    Math.max(dark_sky.v - .24, 0)
+  );
+  let light_goal = rgb_to_hsv(light_squares.r, light_squares.g, light_squares.b);
+  light_goal = hsv_to_rgb(
+    light_goal.h,
+    Math.min(light_goal.s + .03, 1),
+    Math.min(light_goal.v + .07, 1)
+  );
+  let dark_goal = rgb_to_hsv(dark_squares.r, dark_squares.g, dark_squares.b);
+  dark_goal = hsv_to_rgb(
+    dark_goal.h,
+    Math.min(dark_goal.s + .03, 1),
+    Math.max(dark_goal.v - .08, 0)
+  );
+  console.log(light_goal, dark_goal);
+
+  const s = Math.round((window.innerHeight - 100) / 2 / 19);
+  console.log(s, s * 19);
+
+  for(let y = 0; y < 19; y++) {
+    for(let x = 0; x < 19; x++) {
+      const col = (
+        y < 2
+          ? score_bar
+        : x === 0 || x === 18 || y === 2 || y === 18
+          ? border
+        : x === 12 && y === 12
+          ? walls
+        : x % 2 ^ y % 2
+          ? dark_squares
+        : light_squares
+      );
+      board_ctx.fillStyle = `rgb(${col.r}, ${col.g}, ${col.b})`;
+      board_ctx.fillRect(s * x, s * y, s, s);
+    }
+  }
+
+  board_ctx.fillStyle = `rgb(${dark_goal.r}, ${dark_goal.g}, ${dark_goal.b})`;
+  board_ctx.fillRect(s * 12, s * 8, s, s);
+
+  board_ctx.strokeStyle = `rgb(${light_goal.r}, ${light_goal.g}, ${light_goal.b})`;
+  board_ctx.lineWidth = s / 6;
+  board_ctx.strokeRect(s * (12 + 1 / 3), s * (8 + 1 / 3), s * 1 / 3, s * 1 / 3);
+
+  menu_ctx.fillStyle = `rgb(${dark_sky.r}, ${dark_sky.g}, ${dark_sky.b})`;
+  menu_ctx.fillRoundRect(0, 0, menu_preview.width, menu_preview.height * 51 / 542 + 10, 10);
+  
+  menu_ctx.fillStyle = `rgb(${sky.r}, ${sky.g}, ${sky.b})`;
+  menu_ctx.fillRect(0, menu_preview.height * 51 / 542, menu_preview.width, menu_preview.height * 51 / 271);
+  menu_ctx.fillRoundRect(
+    0, menu_preview.height * 0.0940959409594096,
+    menu_preview.width, menu_preview.height * (0.9059040590405905 - 102 / 542),
+    10
+  );
+
+  menu_ctx.fillStyle = `rgb(${buttons.r}, ${buttons.g}, ${buttons.b})`;
+  menu_ctx.fillRoundRect(
+    0, menu_preview.height * 456 / 542,
+    menu_preview.width * 298 / 400, menu_preview.height * 86 / 542,
+    10
+  );
+  menu_ctx.fillRoundRect(
+    menu_preview.width * 315 / 400, menu_preview.height * 456 / 542,
+    menu_preview.width * 85 / 400, menu_preview.height * 86 / 542,
+    10
+  );
+
+  menu_ctx.strokeStyle = `rgb(${separators.r}, ${separators.g}, ${separators.b})`;
+  menu_ctx.lineWidth = 3;
+  for(let i = 0; i < 5; i++) {
+    menu_ctx.beginPath();
+    menu_ctx.moveTo(0, menu_preview.height * 113 / 542 + i * (menu_preview.height * 61 / 542 + 3));
+    menu_ctx.lineTo(menu_preview.width, menu_preview.height * 113 / 542 + i * (menu_preview.height * 61 / 542 + 3));
+    menu_ctx.stroke();
+  }
+
+
+  snek_ctx.drawImage(snek_img, 0, 0);
+  snek_data = snek_ctx.getImageData(0, 0, snek_canv.width, snek_canv.height);
+  snek_pix = snek_data.data;
+  for(let y = 0; y < 143; y++) {
+    for(let x = 0; x < 192; x++) {
+      const i = 4 * (x + y * 192);
+      if(
+        snek_pix[0 + i] === 148 && 
+        snek_pix[1 + i] === 189 &&
+        snek_pix[2 + i] >= 68 && snek_pix[2 + i] <= 72
+      ) {
+        snek_pix[0 + i] = shadows.r;
+        snek_pix[1 + i] = shadows.g;
+        snek_pix[2 + i] = shadows.b;
+      }
+    }
+  }
+
+  snek_ctx.putImageData(snek_data, 0, 0);
+
+  board_ctx.drawImage(snek_canv, s * 2, s * 9, s * 4, s * 3);
+
+  burger && (menu_ctx.drawImage(
+    burg,
+    menu_preview.width * 14 / 400, menu_preview.height * 58 / 542,
+    menu_preview.width * 47 / 400, menu_preview.width * 47 / 400
+  ));
+  hotdog && (menu_ctx.drawImage(
+    dog,
+    menu_preview.width * 64 / 400, menu_preview.height * 58 / 542,
+    menu_preview.width * 47 / 400, menu_preview.width * 47 / 400
+  ));
+  cactus && (menu_ctx.drawImage(
+    cact,
+    menu_preview.width * 114 / 400, menu_preview.height * 58 / 542,
+    menu_preview.width * 47 / 400, menu_preview.width * 47 / 400
+  ));
+  egg && (menu_ctx.drawImage(
+    eg,
+    menu_preview.width * 164 / 400, menu_preview.height * 58 / 542,
+    menu_preview.width * 47 / 400, menu_preview.width * 47 / 400
+  ));
+  lime && (menu_ctx.drawImage(
+    lim,
+    menu_preview.width * 214 / 400, menu_preview.height * 58 / 542,
+    menu_preview.width * 47 / 400, menu_preview.width * 47 / 400
+  ));
+  pepper && (menu_ctx.drawImage(
+    pep,
+    menu_preview.width * 264 / 400, menu_preview.height * 58 / 542,
+    menu_preview.width * 47 / 400, menu_preview.width * 47 / 400
+  ));
+}
+
+
 
 
 
@@ -233,11 +419,17 @@ document.getElementById('sky').oninput =
 document.getElementById('separators').oninput =
 document.getElementById('buttons').oninput =
 document.getElementById('walls').oninput =
-cool;
+document.getElementById('burger').oninput =
+document.getElementById('hotdog').oninput =
+document.getElementById('cactus').oninput =
+document.getElementById('egg').oninput =
+document.getElementById('lime').oninput =
+document.getElementById('pepper').oninput =
+cool_;
 
 // document.getElementById('preview_button').onclick = cool;
 
-setTimeout(cool, 500);
+setTimeout(cool_, 500);
 
 document.getElementById('save').onclick = function() {
 
@@ -282,3 +474,18 @@ document.getElementById('save').onclick = function() {
   if(evt.button === 1)
     e.onclick();
 }));
+
+CanvasRenderingContext2D.prototype.fillRoundRect = function(x, y, width, height, radius = 5) {
+  this.beginPath();
+  this.moveTo(x + radius, y);
+  this.lineTo(x + width - radius, y);
+  this.quadraticCurveTo(x + width, y, x + width, y + radius);
+  this.lineTo(x + width, y + height - radius);
+  this.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+  this.lineTo(x + radius, y + height);
+  this.quadraticCurveTo(x, y + height, x, y + height - radius);
+  this.lineTo(x, y + radius);
+  this.quadraticCurveTo(x, y, x + radius, y);
+  this.closePath();
+  this.fill();
+};

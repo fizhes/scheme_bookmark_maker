@@ -13,142 +13,167 @@
 
     <link rel="icon" href="dark.png" type="image/icon type">
     
-    <p style="font-family: Times New Roman;font-weight:bold;height: 10vh;position: relative;text-align: center;margin-left: auto;margin-right: auto;">
-      <span style="font-size: 40px;">
-        Google Snake Scheme Bookmark Maker
-      </span><br/>
-      <span style="font-weight:normal;font-size: 20px;">
-        Quickly and Easily Make a Custom Scheme
-      </span>
-    </p>
+    
   </head>
   <body>
-    <img src="fish.png" style="cursor:pointer;position:fixed;width:100px;height:10vh;width:10vh;top:0px;left:0px;" class="baaaa" onclick="window.open('https:\/\/fizhes.github.io/', '_blank');">
 
-    <div style="font-family: Segoe UI;width: 600px;height: 10vh;position:relative;margin-left:auto;margin-right:auto;">
+    <style>
+      h1 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 48px;
+        font-style: normal;
+        height: auto;
+        border-bottom: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: #838383;
+      }
 
-      <div style="font-family: Segoe UI;width: 600px;position:relative;margin-left:auto;margin-right:auto;">
-        <label for="title">Bookmark Title: <br/></label>
-        <input type="text" id="title" name="title" size="10" >
+      h2 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 24px;
+      }
 
-        <a style="margin-left:100px;color: white;">woah look how well this page is formatted wowee</a>
-      </div>
+      h4 {
+        font-family: Arial, Helvetica, sans-serif
+      }
 
+      a {
+        color: #41afff;
+      }
+    </style>
 
+    <img src="fish.png" style="cursor:pointer;position:fixed;height:10vh;width:10vh;top:0px;left:0px;" class="baaaa" onclick="window.open('https:\/\/fizhes.github.io/', '_blank');">
+    
+    <div style="font-family: Segoe UI;width: 40vw;height: 10vh;position:relative;margin-left:25vw;">
+      <h1>
+        Scheme Bookmark Generator
+      </h1>
       
+    </div>
 
-      <div style="font-family: Segoe UI;width: 600px;position:relative;margin-left:auto;margin-right:auto;margin-top:0.5vh;">
+    <div style="font-family: Segoe UI;width: 20vw;height: 10vh;position:relative;margin-left:25vw;">
+
+      <div style="font-family: Segoe UI;width: 20vw;margin-top:1vh;">
         <label for="score_bar">Score Bar Color: <br/></label>
         <input type="color" id="score_bar" name="score_bar" size="10" value="#4A752C">
-
       </div>
 
       
       
-      <div style="font-family: Segoe UI;width: 600px;position:relative;margin-left:auto;margin-right:auto;margin-top:0.5vh;">
+      <div style="font-family: Segoe UI;width: 20vw;margin-top:1vh;">
         <label for="walls">Wall/Key Mode Wall Color: <br/></label>
         <input type="color" id="walls" name="walls" size="10" value="#578A34">
       </div>
 
-      <div style="font-family: Segoe UI;width: 600px;position:relative;margin-left:auto;margin-right:auto;margin-top:0.5vh;">
+      <div style="font-family: Segoe UI;width: 20vw;margin-top:1vh;">
         <label for="border">Border Color: <br/></label>
         <input type="color" id="border" name="borders" size="10" value="#578A34">
       </div>
 
       
       
-      <div style="font-family: Segoe UI;width: 600px;position:relative;margin-left:auto;margin-right:auto;margin-top:0.5vh;">
+      <div style="font-family: Segoe UI;width: 20vw;margin-top:1vh;">
         <label for="shadows">Shadow Color: <br/></label>
         <input type="color" id="shadows" name="shadows" size="10" value="#94BD46">
       </div>
 
       
       
-      <div style="font-family: Segoe UI;width: 600px;position:relative;margin-left:auto;margin-right:auto;margin-top:0.5vh;">
+      <div style="font-family: Segoe UI;width: 20vw;margin-top:1vh;">
         <label for="light_squares">Light Square Color: <br/></label>
-        <input type="color" id="light_squares" name="light_squares" size="10" value="#A2D149">
+        <input type="color" id="light_squares" name="light_squares" size="10" value="#AAD751">
       </div>
 
       
       
-      <div style="font-family: Segoe UI;width: 600px;position:relative;margin-left:auto;margin-right:auto;margin-top:0.5vh;">
+      <div style="font-family: Segoe UI;width: 20vw;margin-top:1vh;">
         <label for="dark_squares">Dark Square Color: <br/></label>
-        <input type="color" id="dark_squares" name="dark_squares" size="10" value="#AAD751">
+        <input type="color" id="dark_squares" name="dark_squares" size="10" value="#A2D149">
       </div>
 
 
-      <div style="font-family: Segoe UI;width: 600px;position:relative;margin-left:auto;margin-right:auto;margin-top:0.5vh;">
+      <div style="font-family: Segoe UI;width: 20vw;margin-top:1vh;">
         <label for="background">Background Color: <br/></label>
         <input type="color" id="background" name="background" size="10" value="#4A752C">
       </div>
 
-
-      <div style="font-family: Segoe UI;width: 600px;position:relative;margin-left:auto;margin-right:auto;margin-top:0.5vh;">
+      <div style="font-family: Segoe UI;width: 20vw;margin-top:1vh;">
         <label for="sky">Menu Sky Color:<br/></label>
         <input type="color" id="sky" name="sky" size="10" value="#4DC1F9">
       </div>
 
       
       
-      <div style="font-family: Segoe UI;width: 600px;position:relative;margin-left:auto;margin-right:auto;margin-top:0.5vh;">
+      <div style="font-family: Segoe UI;width: 20vw;margin-top:1vh;">
         <label for="separators">Menu Separator Color:<br/></label>
         <input type="color" id="separators" name="separators" size="10" value="#87CEFA">
       </div>
 
       
       
-      <div style="font-family: Segoe UI;width: 600px;position:relative;margin-left:auto;margin-right:auto;margin-top:0.5vh;">
+      <div style="font-family: Segoe UI;width: 20vw;margin-top:1vh;">
         <label for="buttons">Button Color:</label><br/>
         <input type="color" id="buttons" name="buttons" size="10" value="#1155CC">
       </div>
+      
 
-      <div style="font-family: Segoe UI;width: 600px;position:relative;margin-left:auto;margin-right:auto;margin-top:0.5vh;">
+      
+      
+
+      
+    </div>
+
+    <div style="font-family: Segoe UI;width: 20vw;height: 10vh;position:relative;margin-left: 50vw;margin-top:-10vh;">
+
+      <div style="font-family: Segoe UI;width: 20vw;">
+        <label for="title">Bookmark Title: <br/></label>
+        <input type="text" id="title" name="title" size="10">
+      </div>
+
+      <div style="font-family: Segoe UI;width: 20vw;margin-top:1vh;">
         <input type="checkbox" id="burger" name="burger">
         <label for="burger">Enable Burger Food Option</label>
       </div>
 
-      <div style="font-family: Segoe UI;width: 600px;position:relative;margin-left:auto;margin-right:auto;margin-top:0.5vh;">
+      <div style="font-family: Segoe UI;width: 20vw;margin-top:1vh;">
         <input type="checkbox" id="hotdog" name="hotdog">
         <label for="hotdog">Enable Hot Dog Food Option</label>
       </div>
 
-      <div style="font-family: Segoe UI;width: 600px;position:relative;margin-left:auto;margin-right:auto;margin-top:0.5vh;">
+      <div style="font-family: Segoe UI;width: 20vw;margin-top:1vh;">
         <input type="checkbox" id="cactus" name="cactus">
         <label for="cactus">Enable Cactus Food Option</label>
       </div>
 
-      <div style="font-family: Segoe UI;width: 600px;position:relative;margin-left:auto;margin-right:auto;margin-top:0.5vh;">
+      <div style="font-family: Segoe UI;width: 20vw;margin-top:1vh;">
         <input type="checkbox" id="egg" name="egg">
         <label for="egg">Enable Dragon Egg Food Option</label>
       </div>
 
-      <div style="font-family: Segoe UI;width: 600px;position:relative;margin-left:auto;margin-right:auto;margin-top:0.5vh;">
+      <div style="font-family: Segoe UI;width: 20vw;margin-top:1vh;">
         <input type="checkbox" id="lime" name="lime">
         <label for="lime">Enable Lime Food Option</label>
       </div>
 
-      <div style="font-family: Segoe UI;width: 600px;position:relative;margin-left:auto;margin-right:auto;margin-top:0.5vh;">
+      <div style="font-family: Segoe UI;width: 20vw;margin-top:1vh;">
         <input type="checkbox" id="pepper" name="pepper">
         <label for="pepper">Enable Red Pepper Food Option</label>
       </div>
-      
 
-      <br/>
+      <br/><br/><br/><br/><br/><br/>
 
-      <div style="font-family: Segoe UI;width: 600px;position:relative;margin-left:auto;margin-right:auto;margin-top:-1vh;">
+      <div style="font-family: Segoe UI;width: 20vw;margin-top:-1vh;">
         <button style="cursor: pointer;" id="save">Create Bookmark</button>
       </div>
 
-      <div style="font-family:Times New Roman;width: 600px;position:relative;margin-left:auto;margin-right:auto;margin-top:0.5vh;">
+      <div style="font-family:Times New Roman;width: 20vw;margin-top:1vh;">
         <a href="https://www.youtube.com/watch?v=9W0fEpVFhgc" target="_blank" style="font-family: Segoe UI;color:#41afff;cursor: pointer;">
           How to Import the Bookmark
         </a><br/>
         (Of course, use the bookmark you make here, not the one linked in the description!)
       </div>
-      
-
-      
     </div>
+
     <div style="position:fixed;width: 400px;height: 100px;right:50px;top:0px;">
       <div style="font-family:Consolas" id="preview">Very bad preview:</div>
     </div>
