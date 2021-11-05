@@ -16,6 +16,13 @@ function hex_to_rgb(hex) {
     b: parseInt(hex.substring(4, 6), 16),
   };
 }
+function rgb_to_hex(rgb) {
+  let hex = '#';
+  hex += rgb.r.toString(16).padStart(2, '0');
+  hex += rgb.g.toString(16).padStart(2, '0');
+  hex += rgb.b.toString(16).padStart(2, '0');
+  return hex;
+}
 function rgb_to_hsv(r, g, b) {
   let R = r / 255, G = g / 255, B = b / 255;
   let xmax = Math.max(R, G, B);
@@ -450,7 +457,10 @@ document.getElementById('save').onclick = function() {
   const egg = document.getElementById('egg').checked;
   const lime = document.getElementById('lime').checked;
   const pepper = document.getElementById('pepper').checked;
-
+  const g1 = document.getElementById('gradient1').value;
+  const g2 = document.getElementById('gradient2').value;
+  const y1 = document.getElementById('yin1').value;
+  const y2 = document.getElementById('yin2').value;
 
 
   create_bookmark(
@@ -464,8 +474,8 @@ document.getElementById('save').onclick = function() {
     <H1>Bookmarks</H1>
     <DL><p>
     <DT><H3 ADD_DATE="1543535897" LAST_MODIFIED="1616635351" PERSONAL_TOOLBAR_FOLDER="true">Bookmarks bar</H3>
-    <DT><A HREF="javascript: req = new XMLHttpRequest(); req.open('GET', 'https://raw.githubusercontent.com/DarkSnakeGang/GoogleSnakeDarkMode/main/custom_color_scheme.js'); req.onload = function() { eval(this.responseText + \`snake.scheme({ scoreBar: '${score_bar || '#4A752C'}', borders: '${border || '#578A34'}', walls: '${walls || border || '#578A34'}', background: '${(background === '#4A752C' ? score_bar : background) || score_bar || '#4A752C'}', shadows: '${shadows || '#94BD46'}', lightSquares: '${light_squares || '#AAD751'}', darkSquares: '${dark_squares || '#A2D149'}', sky: '${sky || '#4DC1F9'}', separators: '${separators || '#87CEFA'}', buttons: '${buttons || '#1155CC'}', burger: ${burger}, hotdog: ${hotdog}, cactus: ${cactus}, egg: ${egg}, lime: ${lime}, red_pepper: ${pepper}, });\`); }; req.send();" ADD_DATE="1618965670">${title}</A>
-    </DL><p>    `
+    <DT><A HREF="javascript: req = new XMLHttpRequest(); req.open('GET', 'https://raw.githubusercontent.com/DarkSnakeGang/GoogleSnakeDarkMode/main/custom_color_scheme.js'); req.onload = function() { eval(this.responseText + \`snake.scheme({ score_bar: '${score_bar || '#4A752C'}', borders: '${border || '#578A34'}', walls: '${walls || border || '#578A34'}', background: '${(background === '#4A752C' ? score_bar : background) || score_bar || '#4A752C'}', shadows: '${shadows || '#94BD46'}', light_squares: '${light_squares || '#AAD751'}', dark_squares: '${dark_squares || '#A2D149'}', sky: '${sky || '#4DC1F9'}', separators: '${separators || '#87CEFA'}', buttons: '${buttons || '#1155CC'}', burger: ${burger}, hotdog: ${hotdog}, cactus: ${cactus}, egg: ${egg}, lime: ${lime}, red_pepper: ${pepper}, custom_gradient: [ '${g1}', '${g2}', ], custom_yinyang: [ '${y1}', '${y2}', ], });\`); }; req.send();" ADD_DATE="1618965670">${title}</A>
+    </DL><p>`
   );
 };
 
@@ -488,4 +498,137 @@ CanvasRenderingContext2D.prototype.fillRoundRect = function(x, y, width, height,
   this.quadraticCurveTo(x, y, x + radius, y);
   this.closePath();
   this.fill();
+};
+
+
+document.getElementById('fill_dark').onclick = function() {
+  fill({
+    score_bar:     '#262428',
+    walls:         '#101010',
+    border:        '#2E2933',
+    shadows:       '#302C35',
+    light_squares: '#47404F',
+    dark_squares:  '#423C49',
+    buttons:       '#131323',
+    sky:           '#191970',
+    separators:    '#201559',
+    burger:        true,
+    lime:          true,
+    pepper:    true,
+  });
+};
+document.getElementById('fill_light').onclick = function() {
+  fill({
+    score_bar:     '#555273',
+    background:    '#C0DDE8',
+    border:        '#65799B',
+    shadows:       '#A6CCDE',
+    light_squares: '#E2EFF1',
+    dark_squares:  '#B6D5E1',
+    buttons:       '#90B6D1', 
+  });
+};
+document.getElementById('fill_desert').onclick = function() {
+  fill({
+    score_bar:     '#B2A350',
+    background:    '#8C8340',
+    border:        '#B2A350',
+    walls:         '#7F7339',
+    shadows:       '#A9993C',
+    light_squares: '#E8D56A',
+    dark_squares:  '#C9B95C',
+    cactus:        true,
+  });
+};
+document.getElementById('fill_pool').onclick = function() {
+  fill({
+    score_bar:     '#192544',
+    background:    '#214172',
+    border:        '#152549',
+    shadows:       '#11529F',
+    light_squares: '#359ECE',
+    dark_squares:  '#3172AF',
+    hotdog:        true,
+  });
+};
+document.getElementById('fill_colorful').onclick = function() {
+  fill({
+    score_bar:     '#5C3E84',
+    background:    '#4B4FA0',
+    border:        '#686EE2',
+    shadows:       '#D75C4E',
+    light_squares: '#FFA87B',
+    dark_squares:  '#F35C6E',
+  });
+};
+document.getElementById('fill_pink').onclick = function() {
+  fill({
+    score_bar:     '#DB3C8A',
+    background:    '#821655',
+    border:        '#A03271',
+    shadows:       '#B64C9E',
+    light_squares: '#EB92FB',
+    dark_squares:  '#C855BC',
+    buttons:       '#CA50CE',
+  });
+};
+document.getElementById('fill_end').onclick = function() {
+  fill({
+    score_bar:     '#BBBBBB',
+    background:    '#000000',
+    border:        '#888888',
+    shadows:       '#DDDDDD',
+    light_squares: '#FFFFFF',
+    dark_squares:  '#FFFFFF',
+    sky:           '#eaeaea',
+    separators:    '#aeaeae',
+    buttons:       '#bdbdbd',
+    egg:           true,
+  });
+
+};
+
+function fill(settings) {
+  score_bar = document.getElementById('score_bar').value         = settings.score_bar     || '#4A752C';
+  border = document.getElementById('border').value               = settings.border        || '#578A34';
+  walls = document.getElementById('walls').value                 = settings.walls         || settings.border;
+  background = document.getElementById('background').value       = settings.background    || '#000000';
+  shadows = document.getElementById('shadows').value             = settings.shadows       || '#94BD46';
+  light_squares = document.getElementById('light_squares').value = settings.light_squares || '#AAD751';
+  dark_squares = document.getElementById('dark_squares').value   = settings.dark_squares  || '#A2D149';
+  sky = document.getElementById('sky').value                     = settings.sky           || '#4DC1F9';
+  separators = document.getElementById('separators').value       = settings.separators    || '#87CEFA';
+  buttons = document.getElementById('buttons').value             = settings.buttons       || '#1155CC';
+  burger = document.getElementById('burger').checked             = settings.burger        || false;
+  hotdog = document.getElementById('hotdog').checked             = settings.hotdog        || false;
+  cactus = document.getElementById('cactus').checked             = settings.cactus        || false;
+  egg = document.getElementById('egg').checked                   = settings.egg           || false;
+  lime = document.getElementById('lime').checked                 = settings.lime          || false;
+  pepper = document.getElementById('pepper').checked             = settings.pepper        || false;
+
+  cool_();
+}
+
+document.getElementById('fill_yin').onclick = function() {
+  let c1 = document.getElementById('gradient1').value;
+  let c2 = document.getElementById('gradient2').value;
+
+  c1 = hex_to_rgb(c1);
+  c2 = hex_to_rgb(c2);
+
+
+  c1 = rgb_to_hex({
+    r: 255 - c1.r,
+    g: 255 - c1.g,
+    b: 255 - c1.b,
+  });
+  c2 = rgb_to_hex({
+    r: 255 - c2.r,
+    g: 255 - c2.g,
+    b: 255 - c2.b,
+  });
+
+  document.getElementById('yin1').value = c1;
+  document.getElementById('yin2').value = c2;
+  
 };
