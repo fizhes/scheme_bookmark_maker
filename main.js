@@ -110,7 +110,7 @@ let cus = new Image();
 let url;
 function customimage(){
   url = document.getElementById("url-input")
-  cus.src = `https://i.postimg.cc/BQqHMbDc/redpepper.png`;
+  cus.src = `${url}`;
   cus.className = 'DqMRee SsAred';
 }
 //Find me :))
