@@ -53,9 +53,9 @@ function close(c0, c1, rr = 1, rg = rr, rb = rr) {
          Math.abs(c0.b - c1.b) < rb;
 }
 
+let url;
 function customimage(){
-  const url = document.getElementById("url-input")
-  console.log(url.value)
+  url = document.getElementById("url-input")
 }
 //Find me :)
 
@@ -112,6 +112,10 @@ lim.className = 'DqMRee SsAred';
 let pep = new Image();
 pep.src = 'https://i.postimg.cc/BQqHMbDc/redpepper.png';
 pep.className = 'DqMRee SsAred';
+
+let cus = new Image();
+cus.src = '' + url.toString();
+cus.className = 'DqMRee SsAred';
 
 
 setTimeout(_ => {
@@ -274,6 +278,7 @@ function cool_() {
   const egg = document.getElementById('egg').checked;
   const lime = document.getElementById('lime').checked;
   const pepper = document.getElementById('pepper').checked;
+  const custom = document.getElementById('custom').checked; 
   const score_bar     = hex_to_rgb(document.getElementById('score_bar').value     || '#4A752C');
   const border        = hex_to_rgb(document.getElementById('border').value        || '#578A34');
   const walls         = hex_to_rgb(document.getElementById('walls').value         || '#578A34');
@@ -416,6 +421,12 @@ function cool_() {
     menu_preview.width * 264 / 400, menu_preview.height * 58 / 542,
     menu_preview.width * 47 / 400, menu_preview.width * 47 / 400
   ));
+  pepper && (menu_ctx.drawImage(
+    pep,
+    menu_preview.width * 264 / 400, menu_preview.height * 58 / 542,
+    menu_preview.width * 47 / 400, menu_preview.width * 47 / 400
+  ));
+  //custom draw image
 }
 
 
