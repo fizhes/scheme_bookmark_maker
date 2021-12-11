@@ -110,10 +110,10 @@ let cus = new Image();
 let url;
 function customimage(){
   url = document.getElementById("url-input")
-  cus.src = `${url}`;
+  cus.src = url.value;
   cus.className = 'DqMRee SsAred';
 }
-//Find me :))
+//Find me :)
 
 
 
