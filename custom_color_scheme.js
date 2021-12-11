@@ -415,7 +415,7 @@ if(window.snake) {
                 )
               );
               
-              if(settings.burger || settings.cactus || settings.hotdog || settings.egg || settings.lime || settings.red_pepper || settings.cane || settings.cracker || settings.tree || settings.custom ||) {
+              if(settings.burger || settings.cactus || settings.hotdog || settings.egg || settings.lime || settings.red_pepper || settings.cane || settings.cracker || settings.tree || settings.custom) {
                 const normal = {
                   burg:    i('https://i.postimg.cc/B6ycxmBb/porga.png'),
                   cact:    i('https://i.postimg.cc/RCDVL7Bf/index.png'),
