@@ -53,6 +53,11 @@ function close(c0, c1, rr = 1, rg = rr, rb = rr) {
          Math.abs(c0.b - c1.b) < rb;
 }
 
+function customimage(){
+  const url = document.getElementById("url-input")
+  console.log(url.value)
+}
+
 
 
 let board_preview = document.getElementById('board_preview');
