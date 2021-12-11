@@ -115,7 +115,12 @@ function customimage(){
 }
 //Find me :)
 
-
+const input = document.getElementById("custom");
+input.onchange = function() {
+  if (!input.checked) {
+    customimage();
+  }
+}
 
 setTimeout(_ => {
   
