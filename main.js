@@ -114,7 +114,7 @@ pep.src = 'https://i.postimg.cc/BQqHMbDc/redpepper.png';
 pep.className = 'DqMRee SsAred';
 
 let cus = new Image();
-cus.src = '' + url.toString();
+cus.src = `${url}`;
 cus.className = 'DqMRee SsAred';
 
 
