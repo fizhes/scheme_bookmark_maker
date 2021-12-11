@@ -113,7 +113,7 @@ function customimage(){
   cus.src = `${url}`;
   cus.className = 'DqMRee SsAred';
 }
-//Find me :)
+//Find me :))
 
 
 
