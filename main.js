@@ -53,14 +53,6 @@ function close(c0, c1, rr = 1, rg = rr, rb = rr) {
          Math.abs(c0.b - c1.b) < rb;
 }
 
-let url;
-function customimage(){
-  url = document.getElementById("url-input")
-}
-//Find me :)
-
-
-
 let board_preview = document.getElementById('board_preview');
 board_preview.width = board_preview.height = (window.innerHeight - 100) / 2;
 board_preview.style = `position: fixed; right: 25px; top: 25px;`;
@@ -114,8 +106,16 @@ pep.src = 'https://i.postimg.cc/BQqHMbDc/redpepper.png';
 pep.className = 'DqMRee SsAred';
 
 let cus = new Image();
-cus.src = `${url}`;
-cus.className = 'DqMRee SsAred';
+
+let url;
+function customimage(){
+  url = document.getElementById("url-input")
+  cus.src = `${url}`;
+  cus.className = 'DqMRee SsAred';
+  console.log(cus.src);
+}
+//Find me :)
+
 
 
 setTimeout(_ => {
