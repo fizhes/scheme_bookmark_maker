@@ -112,8 +112,6 @@ function customimage(){
   url = document.getElementById("url-input")
   cus.src = `${url}`;
   cus.className = 'DqMRee SsAred';
-  console.log(document.getElementById('custom').checked);
-  console.log(document.getElementById('pepper').checked);
 }
 //Find me :)
 
@@ -422,9 +420,9 @@ function cool_() {
     menu_preview.width * 264 / 400, menu_preview.height * 58 / 542,
     menu_preview.width * 47 / 400, menu_preview.width * 47 / 400
   ));
-  pepper && (menu_ctx.drawImage(
-    pep,
-    menu_preview.width * 264 / 400, menu_preview.height * 58 / 542,
+  custom && (menu_ctx.drawImage(
+    cus,
+    menu_preview.width * 314 / 400, menu_preview.height * 58 / 542,
     menu_preview.width * 47 / 400, menu_preview.width * 47 / 400
   ));
   //custom draw image
