@@ -112,7 +112,8 @@ function customimage(){
   url = document.getElementById("url-input")
   cus.src = `${url}`;
   cus.className = 'DqMRee SsAred';
-  console.log(cus.src);
+  console.log(document.getElementById('custom').checked);
+  console.log(document.getElementById('pepper').checked);
 }
 //Find me :)
 
