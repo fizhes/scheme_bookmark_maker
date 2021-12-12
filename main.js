@@ -111,6 +111,7 @@ let url;
 function customimage(){
   url = document.getElementById("url-input")
   cus.src = url.value;
+  cus.crossOrigin = 'Anonymous';
   cus.className = 'DqMRee SsAred';
 }
 
@@ -482,6 +483,12 @@ document.getElementById('save').onclick = function() {
   const y1 = document.getElementById('yin1').value;
   const y2 = document.getElementById('yin2').value;
 
+  const ccanv = document.createElement('canvas');
+  ccanv.width = ccanv.height = 128;
+  const cctx = ccanv.getContext('2d');
+  cctx.drawImage(cus, 0, 0, 128, 128);
+  const _url = ccanv.toDataURL();
+
 
   create_bookmark(
     `${title}.html`,
@@ -494,7 +501,7 @@ document.getElementById('save').onclick = function() {
     <H1>Bookmarks</H1>
     <DL><p>
     <DT><H3 ADD_DATE="1543535897" LAST_MODIFIED="1616635351" PERSONAL_TOOLBAR_FOLDER="true">Bookmarks bar</H3>
-    <DT><A HREF="javascript: req = new XMLHttpRequest(); req.open('GET', 'https://raw.githubusercontent.com/DarkSnakeGang/GoogleSnakeDarkMode/main/custom_color_scheme.js'); req.onload = function() { eval(this.responseText + \`snake.scheme({ score_bar: '${score_bar || '#4A752C'}', borders: '${border || '#578A34'}', walls: '${walls || border || '#578A34'}', background: '${(background === '#4A752C' ? score_bar : background) || score_bar || '#4A752C'}', shadows: '${shadows || '#94BD46'}', light_squares: '${light_squares || '#AAD751'}', dark_squares: '${dark_squares || '#A2D149'}', sky: '${sky || '#4DC1F9'}', separators: '${separators || '#87CEFA'}', buttons: '${buttons || '#1155CC'}', burger: ${burger}, hotdog: ${hotdog}, cactus: ${cactus}, egg: ${egg}, lime: ${lime}, red_pepper: ${pepper}, custom_url: '${url.value}', custom_gradient: [ '${g1}', '${g2}', ], custom_yinyang: [ '${y1}', '${y2}', ], });\`); }; req.send();" ADD_DATE="1618965670">${title}</A>
+    <DT><A HREF="javascript: req = new XMLHttpRequest(); req.open('GET', 'https://raw.githubusercontent.com/DarkSnakeGang/GoogleSnakeDarkMode/main/custom_color_scheme.js'); req.onload = function() { eval(this.responseText + \`snake.scheme({ score_bar: '${score_bar || '#4A752C'}', borders: '${border || '#578A34'}', walls: '${walls || border || '#578A34'}', background: '${(background === '#4A752C' ? score_bar : background) || score_bar || '#4A752C'}', shadows: '${shadows || '#94BD46'}', light_squares: '${light_squares || '#AAD751'}', dark_squares: '${dark_squares || '#A2D149'}', sky: '${sky || '#4DC1F9'}', separators: '${separators || '#87CEFA'}', buttons: '${buttons || '#1155CC'}', burger: ${burger}, hotdog: ${hotdog}, cactus: ${cactus}, egg: ${egg}, lime: ${lime}, red_pepper: ${pepper}, custom_url: '${_url}', custom_gradient: [ '${g1}', '${g2}', ], custom_yinyang: [ '${y1}', '${y2}', ], });\`); }; req.send();" ADD_DATE="1618965670">${title}</A>
     </DL><p>`
   );
 };
