@@ -447,7 +447,6 @@ document.getElementById('cactus').oninput =
 document.getElementById('egg').oninput =
 document.getElementById('lime').oninput =
 document.getElementById('pepper').oninput =
-document.getElementById('custom').oninput =
 cool_;
 
 // document.getElementById('preview_button').onclick = cool;
