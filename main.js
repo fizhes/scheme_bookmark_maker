@@ -276,7 +276,6 @@ function cool_() {
   const egg = document.getElementById('egg').checked;
   const lime = document.getElementById('lime').checked;
   const pepper = document.getElementById('pepper').checked;
-  const custom = document.getElementById('custom').checked; 
   const score_bar     = hex_to_rgb(document.getElementById('score_bar').value     || '#4A752C');
   const border        = hex_to_rgb(document.getElementById('border').value        || '#578A34');
   const walls         = hex_to_rgb(document.getElementById('walls').value         || '#578A34');
@@ -419,7 +418,7 @@ function cool_() {
     menu_preview.width * 264 / 400, menu_preview.height * 58 / 542,
     menu_preview.width * 47 / 400, menu_preview.width * 47 / 400
   ));
-  custom && (menu_ctx.drawImage(
+  url.value && (menu_ctx.drawImage(
     cus,
     menu_preview.width * 314 / 400, menu_preview.height * 58 / 542,
     menu_preview.width * 47 / 400, menu_preview.width * 47 / 400
