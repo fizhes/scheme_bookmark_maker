@@ -136,6 +136,8 @@ setTimeout(_ => {
 }, 300);
 
 function cool() {
+  customimage();
+
   board_ctx.fillStyle = 'black';
   board_ctx.fillRect(0, 0, (window.innerHeight - 100) / 2, (window.innerHeight - 100) / 2);
   menu_ctx.fillStyle = 'black';
@@ -265,6 +267,9 @@ function cool() {
 }
 
 function cool_() {
+
+  customimage();
+
   board_ctx.fillStyle = 'white';
   board_ctx.fillRect(0, 0, (window.innerHeight - 100) / 2, (window.innerHeight - 100) / 2);
   menu_ctx.fillStyle = 'white';
@@ -418,7 +423,7 @@ function cool_() {
     menu_preview.width * 264 / 400, menu_preview.height * 58 / 542,
     menu_preview.width * 47 / 400, menu_preview.width * 47 / 400
   ));
-  url.value && (menu_ctx.drawImage(
+  cus && (menu_ctx.drawImage(
     cus,
     menu_preview.width * 314 / 400, menu_preview.height * 58 / 542,
     menu_preview.width * 47 / 400, menu_preview.width * 47 / 400
@@ -446,6 +451,7 @@ document.getElementById('cactus').oninput =
 document.getElementById('egg').oninput =
 document.getElementById('lime').oninput =
 document.getElementById('pepper').oninput =
+document.getElementById('url-input').oninput = 
 cool_;
 
 // document.getElementById('preview_button').onclick = cool;
