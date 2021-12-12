@@ -53,8 +53,6 @@ function close(c0, c1, rr = 1, rg = rr, rb = rr) {
          Math.abs(c0.b - c1.b) < rb;
 }
 
-
-
 let board_preview = document.getElementById('board_preview');
 board_preview.width = board_preview.height = (window.innerHeight - 100) / 2;
 board_preview.style = `position: fixed; right: 25px; top: 25px;`;
@@ -106,6 +104,16 @@ lim.className = 'DqMRee SsAred';
 let pep = new Image();
 pep.src = 'https://i.postimg.cc/BQqHMbDc/redpepper.png';
 pep.className = 'DqMRee SsAred';
+
+let cus = new Image();
+
+let url;
+function customimage(){
+  url = document.getElementById("url-input")
+  cus.src = url.value;
+  cus.className = 'DqMRee SsAred';
+}
+
 
 
 setTimeout(_ => {
@@ -268,6 +276,7 @@ function cool_() {
   const egg = document.getElementById('egg').checked;
   const lime = document.getElementById('lime').checked;
   const pepper = document.getElementById('pepper').checked;
+  const custom = document.getElementById('custom').checked; 
   const score_bar     = hex_to_rgb(document.getElementById('score_bar').value     || '#4A752C');
   const border        = hex_to_rgb(document.getElementById('border').value        || '#578A34');
   const walls         = hex_to_rgb(document.getElementById('walls').value         || '#578A34');
@@ -410,6 +419,12 @@ function cool_() {
     menu_preview.width * 264 / 400, menu_preview.height * 58 / 542,
     menu_preview.width * 47 / 400, menu_preview.width * 47 / 400
   ));
+  custom && (menu_ctx.drawImage(
+    cus,
+    menu_preview.width * 314 / 400, menu_preview.height * 58 / 542,
+    menu_preview.width * 47 / 400, menu_preview.width * 47 / 400
+  ));
+  //custom draw image
 }
 
 
@@ -432,6 +447,7 @@ document.getElementById('cactus').oninput =
 document.getElementById('egg').oninput =
 document.getElementById('lime').oninput =
 document.getElementById('pepper').oninput =
+document.getElementById('custom').oninput =
 cool_;
 
 // document.getElementById('preview_button').onclick = cool;
@@ -457,6 +473,7 @@ document.getElementById('save').onclick = function() {
   const egg = document.getElementById('egg').checked;
   const lime = document.getElementById('lime').checked;
   const pepper = document.getElementById('pepper').checked;
+  const custom = document.getElementById('custom').checked;
   const g1 = document.getElementById('gradient1').value;
   const g2 = document.getElementById('gradient2').value;
   const y1 = document.getElementById('yin1').value;
@@ -474,7 +491,7 @@ document.getElementById('save').onclick = function() {
     <H1>Bookmarks</H1>
     <DL><p>
     <DT><H3 ADD_DATE="1543535897" LAST_MODIFIED="1616635351" PERSONAL_TOOLBAR_FOLDER="true">Bookmarks bar</H3>
-    <DT><A HREF="javascript: req = new XMLHttpRequest(); req.open('GET', 'https://raw.githubusercontent.com/DarkSnakeGang/GoogleSnakeDarkMode/main/custom_color_scheme.js'); req.onload = function() { eval(this.responseText + \`snake.scheme({ score_bar: '${score_bar || '#4A752C'}', borders: '${border || '#578A34'}', walls: '${walls || border || '#578A34'}', background: '${(background === '#4A752C' ? score_bar : background) || score_bar || '#4A752C'}', shadows: '${shadows || '#94BD46'}', light_squares: '${light_squares || '#AAD751'}', dark_squares: '${dark_squares || '#A2D149'}', sky: '${sky || '#4DC1F9'}', separators: '${separators || '#87CEFA'}', buttons: '${buttons || '#1155CC'}', burger: ${burger}, hotdog: ${hotdog}, cactus: ${cactus}, egg: ${egg}, lime: ${lime}, red_pepper: ${pepper}, custom_gradient: [ '${g1}', '${g2}', ], custom_yinyang: [ '${y1}', '${y2}', ], });\`); }; req.send();" ADD_DATE="1618965670">${title}</A>
+    <DT><A HREF="javascript: req = new XMLHttpRequest(); req.open('GET', 'https://raw.githubusercontent.com/carlgustavh/scheme_bookmark_maker/main/custom_color_scheme.js'); req.onload = function() { eval(this.responseText + \`snake.scheme({ score_bar: '${score_bar || '#4A752C'}', borders: '${border || '#578A34'}', walls: '${walls || border || '#578A34'}', background: '${(background === '#4A752C' ? score_bar : background) || score_bar || '#4A752C'}', shadows: '${shadows || '#94BD46'}', light_squares: '${light_squares || '#AAD751'}', dark_squares: '${dark_squares || '#A2D149'}', sky: '${sky || '#4DC1F9'}', separators: '${separators || '#87CEFA'}', buttons: '${buttons || '#1155CC'}', burger: ${burger}, hotdog: ${hotdog}, cactus: ${cactus}, egg: ${egg}, lime: ${lime}, red_pepper: ${pepper}, custom: ${custom}, custom_url: '${url.value}', custom_gradient: [ '${g1}', '${g2}', ], custom_yinyang: [ '${y1}', '${y2}', ], });\`); }; req.send();" ADD_DATE="1618965670">${title}</A>
     </DL><p>`
   );
 };
