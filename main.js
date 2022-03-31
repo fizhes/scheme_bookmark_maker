@@ -612,21 +612,7 @@ document.getElementById('fill_pink').onclick = function() {
     buttons:       '#CA50CE',
   });
 };
-document.getElementById('fill_end').onclick = function() {
-  fill({
-    score_bar:     '#BBBBBB',
-    background:    '#000000',
-    border:        '#888888',
-    shadows:       '#DDDDDD',
-    light_squares: '#FFFFFF',
-    dark_squares:  '#FFFFFF',
-    sky:           '#eaeaea',
-    separators:    '#aeaeae',
-    buttons:       '#bdbdbd',
-    egg:           true,
-  });
 
-};
 
 function fill(settings) {
   score_bar = document.getElementById('score_bar').value         = settings.score_bar     || '#4A752C';
